@@ -166,7 +166,7 @@ Plug 'ncm2/ncm2-github'
 Plug 'ncm2/ncm2-tmux'
 Plug 'ncm2/ncm2-tagprefix'
 Plug 'filipekiss/ncm2-look.vim'
-"Plug 'jsfaint/gen_tags.vim'
+Plug 'jsfaint/gen_tags.vim'
 Plug 'ncm2/ncm2-syntax'
 Plug 'ncm2/ncm2-neoinclude'
 Plug 'ncm2/ncm2-ultisnips'
@@ -195,7 +195,7 @@ Plug 'liubianshi/ncm-R' "r completion
 "Plug 'REditorSupport/languageserver' "R
 "Plug 'JuliaEditorSupport/LanguageServer.jl' "Julia
 
-"Plug 'mads-hartmann/bash-language-server' "bash 
+"Plug 'mads-hartmann/bash-language-server' "bash
 "Plug 'Alloyed/lua-lsp' "Lua
 "Plug 'palantir/python-language-server', {'branch': 'develop'} "Python
 "Plug 'castwide/solargraph' "Ruby
@@ -212,7 +212,7 @@ Plug 'liubianshi/ncm-R' "r completion
 
 "Plug 'haskell/haskell-ide-engine' "Haskell
 "Plug 'freebroccolo/ocaml-language-server' "Ocaml
-"
+
 "Plug 'vshaxe/haxe-languageserver' "Haxe
 "Plug 'rlovelett/langserver-swift' "Swift
 
@@ -360,6 +360,7 @@ map <leader>a <Esc>:FzfAg!
 "Airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#coc#enabled = 1
 "let g:airline_solarized_bg='dark'
 let g:airline_theme='base16'
 
@@ -443,8 +444,8 @@ let g:airline_theme='base16'
 
 "Cmdline
 let cmdline_app = {}
-"let cmdline_app["python"] = "jupyter-console"
-let cmdline_app["python"] = "ipython"
+let cmdline_app["python"] = "jupyter-console"
+"let cmdline_app["python"] = "ipython"
 let cmdline_app["ruby"] = "pry"
 let cmdline_app["sh"] = "zsh"
 let cmdline_follow_colorscheme = 1
@@ -629,7 +630,7 @@ let R_path = '$HOME/.miniconda3/envs/r/bin'
 "let R_tmpdir = "$HOME/tmp"
 "let R_compldir = "$HOME/tmp"
 
-" Use Ctrl+Space to do omnicompletion:
+"Use Ctrl+Space to do omnicompletion:
 if has("gui_running")
     inoremap <C-Space> <C-x><C-o>
 else
@@ -687,7 +688,6 @@ let g:airline#extensions#tmuxline#enabled = 0
 
 "UltiSnips
 "better key bindings for UltiSnipsExpandTrigger
-"let g:UltiSnipsExpandTrigger="<Plug>(ultisnips_expand)"
 "let g:UltiSnipsJumpForwardTrigger = "<tab>"
 "let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 "let g:UltiSnipsEditSplit="vertical"
