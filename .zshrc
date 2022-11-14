@@ -24,14 +24,6 @@ eval $(dircolors)
   #source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 #fi
 
-# Autosuggest
-bindkey '^f' forward-word
-bindkey '^b' backward-word
-bindkey '^e' end-of-line
-bindkey '^P' history-substring-search-up
-bindkey '^N' history-substring-search-down
-ZSH_AUTOSUGGEST_USE_ASYNC=true
-
 # Base 16 shell - not currently working
 #BASE16_SHELL="$HOME/.config/base16-shell/"
 #[ -n "$PS1" ] && \
@@ -214,6 +206,14 @@ zinit light-mode for \
 # (this is currently required for annexes)
 
 ### End of Zinit's installer chunk
+
+# Autosuggest
+bindkey '^f' forward-word
+bindkey '^b' backward-word
+bindkey '^e' end-of-line
+bindkey '^P' history-substring-search-up
+bindkey '^N' history-substring-search-down
+ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 # Powerlevel10K
 (( ! ${+functions[p10k]} )) || p10k finalize
