@@ -31,7 +31,8 @@ set ffs=unix,dos,mac
 set foldmethod=syntax
 set foldlevel=99
 set termguicolors
-set omnifunc=syntaxcomplete#Complete
+set shortmess+=c
+"set omnifunc=syntaxcomplete#Complete
 set cursorline
 "set autochdir
 "set winminheight=20
@@ -40,7 +41,6 @@ set cursorline
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
-
 
 "Set buffer autocmds
 autocmd BufWinEnter,WinEnter term://* startinsert 
@@ -113,7 +113,7 @@ Plug 'zhaocai/goldenview.vim' "split buffers
 "Plug 'lifepillar/vim-solarized8'
 "Plug 'nightsense/seabird'
 "Plug 'liuchengxu/space-vim-dark'
-Plug 'joshdick/onedark.vim'
+"Plug 'joshdick/onedark.vim'
 "Plug 'fneu/breezy'
 "Plug 'dracula/vim'
 Plug 'chriskempson/base16-vim'
@@ -131,40 +131,34 @@ Plug 'scrooloose/nerdcommenter' "shortcuts to comment out
 Plug 'tpope/vim-commentary'
 
 "Completion
-"Plug 'Shougo/deoplete.nvim' "completion engine
-Plug 'Shougo/neoinclude.vim' "completion engine
-Plug 'Shougo/neco-syntax' "vimscript completion
-Plug 'Shougo/neco-vim' "vimscript completion
-
-"Plug 'zchee/deoplete-clang' "C/C++/ObjC completion
-"Plug 'zchee/deoplete-go' "Go completion
-"Plug 'zchee/deoplete-jedi' "Python completion
-"Plug 'zchee/deoplete-zsh' "zsh completion
+Plug 'wellle/tmux-complete.vim'
 
 "Plug 'davidhalter/jedi-vim' "python completion
 
-"Plug 'landaire/deoplete-d' "D completion
-"Plug 'landaire/deoplete-swift' "Swift completion
+"asyncomplete
+"Plug 'prabirshrestha/asyncomplete.vim'
+"Plug 'prabirshrestha/asyncomplete-buffer.vim'
+"Plug 'prabirshrestha/asyncomplete-file.vim'
+"Plug 'prabirshrestha/asyncomplete-necovim.vim'
+"Plug 'prabirshrestha/asyncomplete-necosyntax.vim'
+"Plug 'yami-beta/asyncomplete-omni.vim'
 
-"Plug 'sebastianmarkow/deoplete-rust' "Rust completion
+"Plug 'codota/tabnine'
+"Plug 'kitagry/asyncomplete-tabnine.vim', { 'do': './install.sh' }
 
-"Plug 'carlitux/deoplete-ternjs' "Javascript completion
-"Plug 'clojure-vim/async-clj-omni' "Clojure completion
+"Coc
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc-neco'
 
-"Plug 'SevereOverfl0w/deoplete-github' "Github completion
+"YouCompleteMe
+"Plug 'ycm-core/YouCompleteMe'
+"let ycm_semantic_triggers = { 'r' : ['re!..', '::', '$', '@', '(', ','] }
 
-"Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') } "replace with deoplete
-"Plug 'vim-scripts/OmniCppComplete' "c++ completion
-
+"ncm2
 Plug 'ncm2/ncm2' "completion engine
 Plug 'roxma/nvim-yarp'
 
 autocmd BufEnter * call ncm2#enable_for_buffer()
-
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-\ }
 
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
@@ -175,7 +169,6 @@ Plug 'filipekiss/ncm2-look.vim'
 "Plug 'jsfaint/gen_tags.vim'
 Plug 'ncm2/ncm2-syntax'
 Plug 'ncm2/ncm2-neoinclude'
-Plug 'wellle/tmux-complete.vim'
 Plug 'ncm2/ncm2-ultisnips'
 "Plug 'ncm2/ncm2-match-highlight'
 "Plug 'ncm2/ncm2-highprio-pop'
@@ -187,37 +180,43 @@ Plug 'ncm2/ncm2-pyclang'
 Plug 'ncm2/ncm2-go'
 Plug 'liubianshi/ncm-R' "r completion
 
-Plug 'MaskRay/ccls' "C/C++
-Plug 'Pure-D/serve-d' "D
-Plug 'sourcegraph/go-langserver' "Go
-Plug 'rust-lang-nursery/rls' "Rust
-Plug 'hansec/fortran-language-server' "Fortran
+"LanguageServer
+"Plug 'autozimu/LanguageClient-neovim', {
+    "\ 'branch': 'next',
+    "\ 'do': 'bash install.sh',
+"\ }
 
-Plug 'REditorSupport/languageserver'  "R
-Plug 'JuliaEditorSupport/LanguageServer.jl' "Julia
+"Plug 'MaskRay/ccls' "C/C++
+"Plug 'Pure-D/serve-d' "D
+"Plug 'sourcegraph/go-langserver' "Go
+"Plug 'rust-lang-nursery/rls' "Rust
+"Plug 'hansec/fortran-language-server' "Fortran
 
-Plug 'mads-hartmann/bash-language-server' "bash 
-Plug 'Alloyed/lua-lsp' "Lua
-Plug 'palantir/python-language-server', {'branch': 'develop'} "Python
-Plug 'castwide/solargraph' "Ruby
+"Plug 'REditorSupport/languageserver' "R
+"Plug 'JuliaEditorSupport/LanguageServer.jl' "Julia
 
-Plug 'CXuesong/LanguageServer.NET' "C#
-Plug 'eclipse/eclipse.jdt.ls' "Java
+"Plug 'mads-hartmann/bash-language-server' "bash 
+"Plug 'Alloyed/lua-lsp' "Lua
+"Plug 'palantir/python-language-server', {'branch': 'develop'} "Python
+"Plug 'castwide/solargraph' "Ruby
 
-Plug 'Microsoft/vscode/tree/master/extensions/json' "JSON
-Plug 'microclimate-devops/xml-language-server' "XML
-Plug 'redhat-developer/yaml-language-server' "YAML
+"Plug 'CXuesong/LanguageServer.NET' "C#
+"Plug 'eclipse/eclipse.jdt.ls' "Java
+"Plug 'snoe/clojure-lsp' "Clojure
+"Plug 'palantir/groovy-language-server', {'branch': 'develop'} "Groovy
+"Plug 'dragos/dragos-vscode-scala'
+
+"Plug 'Microsoft/vscode/tree/master/extensions/json' "JSON
+"Plug 'microclimate-devops/xml-language-server' "XML
+"Plug 'redhat-developer/yaml-language-server' "YAML
 
 "Plug 'haskell/haskell-ide-engine' "Haskell
 "Plug 'freebroccolo/ocaml-language-server' "Ocaml
 "
 "Plug 'vshaxe/haxe-languageserver' "Haxe
-"Plug 'rlovelett/langserver-swift'
+"Plug 'rlovelett/langserver-swift' "Swift
 
-"Plug 'snoe/clojure-lsp' "Clojure
 "Plug 'georgewfraser/kotlin-language-server' "Kotlin
-"Plug 'palantir/groovy-language-server', {'branch': 'develop'} "Groovy
-"Plug 'dragos/dragos-vscode-scala'
 "Plug 'scalameta/metals'
 
 "Plug 'natebosch/dart_language_server' "Dart
@@ -258,9 +257,6 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'godlygeek/tabular' "align to specific characters
 Plug 'tommcdo/vim-lion'
-
-"Java - why the hell is this installed?
-"Plug 'vim-scripts/JavaDecompiler.vim'
 
 "Kana
 Plug 'kana/vim-smartchr' "replace characters
@@ -348,7 +344,6 @@ Plug 'kana/vim-textobj-lastpat' "lastpattern text object
 Plug 'kana/vim-textobj-indent' "indent text object
 Plug 'kana/vim-textobj-fold' "fold text object
 
-
 "VCS
 Plug 'tpope/vim-fugitive' "git plugin
 "Plug 'vim-scripts/vcscommand.vim' "is this needed?
@@ -368,6 +363,84 @@ let g:airline#extensions#tabline#enabled = 1
 "let g:airline_solarized_bg='dark'
 let g:airline_theme='base16'
 
+"Asyncomplete
+"inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+""inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+
+"imap <c-space> <Plug>(asyncomplete_force_refresh)
+
+"let g:asyncomplete_auto_popup = 1
+
+"function! s:check_back_space() abort
+    "let col = col('.') - 1
+    "return !col || getline('.')[col - 1]  =~ '\s'
+"endfunction
+
+"inoremap <silent><expr> <TAB>
+  "\ pumvisible() ? "\<C-n>" :
+  "\ <SID>check_back_space() ? "\<TAB>" :
+  "\ asyncomplete#force_refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+"" allow modifying the completeopt variable, or it will
+"" be overridden all the time
+"let g:asyncomplete_auto_completeopt = 0
+
+"set completeopt=menuone,noinsert,noselect,preview
+
+"autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+"Asyncomplete buffer
+"au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+    "\ 'name': 'buffer',
+    "\ 'allowlist': ['*'],
+    "\ 'blocklist': ['go'],
+    "\ 'completor': function('asyncomplete#sources#buffer#completor'),
+    "\ 'config': {
+    "\    'max_buffer_size': 5000000,
+    "\  },
+    "\ }))
+
+"au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+    "\ 'name': 'file',
+    "\ 'allowlist': ['*'],
+    "\ 'priority': 10,
+    "\ 'completor': function('asyncomplete#sources#file#completor')
+    "\ }))
+
+"au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#necovim#get_source_options({
+    "\ 'name': 'necovim',
+    "\ 'allowlist': ['vim'],
+    "\ 'completor': function('asyncomplete#sources#necovim#completor'),
+    "\ }))
+
+"au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#necosyntax#get_source_options({
+    "\ 'name': 'necosyntax',
+    "\ 'allowlist': ['*'],
+    "\ 'completor': function('asyncomplete#sources#necosyntax#completor'),
+    "\ }))
+
+"au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#tabnine#get_source_options({
+    "\ 'name': 'tabnine',
+    "\ 'allowlist': ['*'],
+    "\ 'completor': function('asyncomplete#sources#tabnine#completor'),
+    "\ 'config': {
+    "\   'line_limit': 1000,
+    "\   'max_num_result': 20,
+    "\  },
+    "\ }))
+
+"au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+    "\ 'name': 'omni',
+    "\ 'whitelist': ['*'],
+    "\ 'blacklist': ['c', 'cpp', 'html'],
+    "\ 'completor': function('asyncomplete#sources#omni#completor'),
+    "\ 'config': {
+    "\   'show_source_kind': 1 
+    "\ }
+    "\ }))
+
 "Cmdline
 let cmdline_app = {}
 "let cmdline_app["python"] = "jupyter-console"
@@ -377,6 +450,91 @@ let cmdline_app["sh"] = "zsh"
 let cmdline_follow_colorscheme = 1
 let cmdline_outhl = 1
 let cmdline_in_buffer = 1
+
+"Coc
+"set nobackup
+"set nowritebackup
+"set cmdheight=2
+"set updatetime=300
+"set signcolumn=yes
+
+"inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+"function! s:check_back_space() abort
+  "let col = col('.') - 1
+  "return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
+
+"inoremap <silent><expr> <c-space> coc#refresh()
+
+"inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+"nmap <silent> [g <Plug>(coc-diagnostic-prev)
+"nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+"nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gi <Plug>(coc-implementation)
+"nmap <silent> gr <Plug>(coc-references)
+
+"nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+"function! s:show_documentation()
+  "if (index(['vim','help'], &filetype) >= 0)
+    "execute 'h '.expand('<cword>')
+  "else
+    "call CocActionAsync('doHover')
+  "endif
+"endfunction
+
+"autocmd CursorHold * silent call CocActionAsync('highlight')
+
+"nmap <leader>rn <Plug>(coc-rename)
+
+"xmap <leader>f  <Plug>(coc-format-selected)
+"nmap <leader>f  <Plug>(coc-format-selected)
+
+"augroup mygroup
+  "autocmd!
+  "autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  "autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+"augroup end
+
+"xmap <leader>a  <Plug>(coc-codeaction-selected)
+"nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+"nmap <leader>ac  <Plug>(coc-codeaction)
+"nmap <leader>qf  <Plug>(coc-fix-current)
+
+"xmap if <Plug>(coc-funcobj-i)
+"omap if <Plug>(coc-funcobj-i)
+"xmap af <Plug>(coc-funcobj-a)
+"omap af <Plug>(coc-funcobj-a)
+"xmap ic <Plug>(coc-classobj-i)
+"omap ic <Plug>(coc-classobj-i)
+"xmap ac <Plug>(coc-classobj-a)
+"omap ac <Plug>(coc-classobj-a)
+
+"nmap <silent> <C-s> <Plug>(coc-range-select)
+"xmap <silent> <C-s> <Plug>(coc-range-select)
+
+"command! -nargs=0 Format :call CocAction('format')
+
+"command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+"command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+"nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+"nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+"nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+"nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+"nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+"nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+"nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+"nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>m
 
 "CSV
 let g:csv_autocmd_arrange      = 1
@@ -388,15 +546,6 @@ let g:ctrlp_cmd = 'CtrlPMRU'
 " narrow the list down with a word under cursor
 "nnoremap <leader>fu :CtrlPFunky<CR>
 "nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
-
-"Deoplete
-"let g:deoplete#enable_at_startup = 1
-"let g:deoplete#file#enable_buffer_path = 0
-"let g:deoplete#sources#go#gocode_binary = '/usr/bin/gocode'
-"let g:SuperTabDefaultCompletionType = 'context'
-"let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
-"let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
-"let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
 
 "Fugitive
 "Command to automatically commit and push changes
@@ -414,7 +563,6 @@ let g:goldenview__enable_default_mapping = 0
 "Gundo
 map <leader>g :GundoToggle<CR>
 
-
 "Jedi-vim
 let g:jedi#completions_enabled = 0
 
@@ -430,12 +578,14 @@ endfunction
 "Ncm
 au User Ncm2PopupOpen set completeopt=noinsert,menuone,noselect
 au User Ncm2PopupClose set completeopt=menuone
-set shortmess+=c
-au TextChangedI * call ncm2#auto_trigger()
+"au TextChangedI * call ncm2#auto_trigger()
 inoremap <c-c> <ESC>
 "inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 "inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 "inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+autocmd BufNewFile,BufRead * inoremap <silent> <buffer> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+
 "au User Ncm2Plugin call ncm2#register_source({
             "\ 'name' : 'R',
             "\ 'priority': 9, 
@@ -447,8 +597,7 @@ inoremap <c-c> <ESC>
             "\ 'complete_pattern': ['$', '::', '"', "'"],
             "\ 'on_complete': ['ncm2#on_complete#delay', 180, 'ncm2#on_complete#omni', 'CompleteR'],
             "\ })
-
-autocmd BufNewFile,BufRead * inoremap <silent> <buffer> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+let g:ncm2#match_highlight = 'bold'
 
 "Neoterm
 let g:neoterm_repl_python = "ipython"
@@ -538,20 +687,19 @@ let g:airline#extensions#tmuxline#enabled = 0
 
 "UltiSnips
 "better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger="<Plug>(ultisnips_expand)"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+"let g:UltiSnipsExpandTrigger="<Plug>(ultisnips_expand)"
+"let g:UltiSnipsJumpForwardTrigger = "<tab>"
+"let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 "let g:UltiSnipsEditSplit="vertical"
 
 " Press enter key to trigger snippet expansion
 " The parameters are the same as `:help feedkeys()`
 "inoremap <silent> <buffer> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
 
-" c-j c-k for moving in snippet
-"let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
-"let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
-"let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
-"let g:UltiSnipsRemoveSelectModeMappings = 0
+let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
+"let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 "Vimtex
 "let g:vimtex_latexmk_options="-xelatex" "Use XeLaTeX to compile for better font support
@@ -588,5 +736,3 @@ hi def link rOperator    Statement
 "hi Visual ctermbg=11
 "hi Spellbad ctermbg=1 ctermfg=15
 "hi Search ctermfg=0 ctermbg=59
-
-
