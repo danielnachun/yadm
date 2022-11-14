@@ -132,6 +132,9 @@ Plug 'tpope/vim-commentary'
 
 "Completion
 Plug 'wellle/tmux-complete.vim'
+Plug 'Shougo/neoinclude.vim' "completion engine
+Plug 'Shougo/neco-syntax' "vimscript completion
+Plug 'Shougo/neco-vim' "vimscript completion
 
 "Plug 'davidhalter/jedi-vim' "python completion
 
