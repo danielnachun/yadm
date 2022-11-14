@@ -9,6 +9,7 @@ if [[ $system_type == "Linux" ]]; then
     micromamba config prepend channels bioconda
     micromamba config prepend channels conda-forge
     micromamba config prepend channels dnachun
+    source $HOME/.bashrc
     micromamba activate base
     micromamba config set auto_activate_base true
     # What's wrong with global?
