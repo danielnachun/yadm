@@ -3,6 +3,7 @@
 system_type=$(uname -s)
 
 if [[ $system_type == "Linux" ]]; then
+    PATH=$HOME/.local/bin:$PATH
     curl micro.mamba.pm/install.sh | bash
     micromamba config prepend channels defaults
     micromamba config prepend channels bioconda
