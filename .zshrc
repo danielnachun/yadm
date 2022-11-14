@@ -6,12 +6,15 @@ source $HOME/.conda_aliases # aliases to run some conda packages w/o activating 
 
 # Environment variables
 export EDITOR="nvim"
-#export PATH="$(cope_path):$PATH" # restore when cope conda package is made
 export SPROMPT='zsh: correct %F{1}%R%f to %F{2}%r%f [nyae]? '
 export ENHANCD_COMMAND=ecd
 export R_MAX_NUM_DLLS=500
 #export MANPAGER="nvim -c 'set ft=man' -" # supposed to use nvim as man pager but not working
 export XDG_CACHE_HOME="$HOME/.cache"
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+#export PATH="$(cope_path):$PATH" # restore when cope conda package is made
 
 # Load dircolors before plugins
 eval $(dircolors)
@@ -20,7 +23,7 @@ eval $(dircolors)
 #if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   #source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 #fi
-#
+
 # Autosuggest
 bindkey '^f' forward-word
 bindkey '^b' backward-word
@@ -106,6 +109,7 @@ zinit snippet OMZP::colored-man-pages
 
 # Copy
 #zinit snippet OMZP::copydir
+zinit snippet OMZP::copypath
 zinit snippet OMZP::copyfile
 zinit snippet OMZP::cp
 zinit snippet OMZP::rsync
@@ -208,7 +212,7 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
-#
+
 ### End of Zinit's installer chunk
 
 # Powerlevel10K
