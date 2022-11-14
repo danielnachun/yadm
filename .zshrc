@@ -52,7 +52,7 @@ ZSH_AUTOSUGGEST_USE_ASYNC=true
 # Automatic or semi-automatic configuration
 # The following lines were added by compinstall
 zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _list _oldlist _expand _complete _ignored _match _correct _approximate _prefix _yaourt
+zstyle ':completion:*' completer _list _oldlist _expand _complete _ignored _match _correct _approximate _prefix
 zstyle ':completion:*' completions 1
 zstyle ':completion:*' condition 0
 zstyle ':completion:*' expand prefix suffix
