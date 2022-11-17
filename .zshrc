@@ -2,7 +2,9 @@
 # Manually configured section
 # Aliases
 alias vim="nvim"
-source $HOME/.conda_aliases # aliases to run some conda packages w/o activating environment
+if [[ -f "$HOME/.conda_aliases" ]]; then
+    source $HOME/.conda_aliases # aliases to run some conda packages w/o activating environment
+fi
 
 # Environment variables
 export EDITOR="nvim"
@@ -13,8 +15,6 @@ export R_MAX_NUM_DLLS=500
 export XDG_CACHE_HOME="$HOME/.cache"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-
-#export PATH="$(cope_path):$PATH" # restore when cope conda package is made
 
 # Load dircolors before plugins
 eval $(dircolors)
@@ -261,3 +261,5 @@ else
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
+
+export PATH="$(cope_path):$PATH" # restore when cope conda package is made
