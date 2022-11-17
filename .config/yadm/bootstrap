@@ -12,8 +12,8 @@ if [[ $system_type == "Linux" ]]; then
     micromamba config prepend channels dnachun
     micromamba activate base
     micromamba config set auto_activate_base true
-    # What's wrong with global?
     micromamba install --yes \
+        archiver \
         aria2 \
         atool \
         autoconf \
@@ -26,6 +26,7 @@ if [[ $system_type == "Linux" ]]; then
         bison \
         breezy \
         bzip2 \
+        ccat \
         clang \
         clangxx \
         cmake \
@@ -47,10 +48,13 @@ if [[ $system_type == "Linux" ]]; then
         gdb \
         gfortran \
         git \
+        global \
         gnupg \
         grep \
+        grex \
         groff \
         gxx \
+        hstr \
         htop \
         inetutils \
         less \
@@ -86,6 +90,7 @@ if [[ $system_type == "Linux" ]]; then
         peco \
         percol \
         perl-ack \
+        perl-cope \
         pick \
         pixz \
         plzip \
@@ -121,9 +126,8 @@ if [[ $system_type == "Linux" ]]; then
         xz \
         zip \
         zsh
+    # Do these after so they override conflicting files
     micromamba install --yes parallel rename
-    micromamba install --yes global
-    mamba init bash
     mamba init zsh
     micromamba shell init --shell zsh
     conda config --set auto_stack 1
