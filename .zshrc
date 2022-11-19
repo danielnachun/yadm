@@ -226,25 +226,6 @@ autoload -Uz compinit && compinit
 autoload -Uz compdef
 autoload -Uz promptinit && promptinit
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/dnachun/micromamba/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/dnachun/micromamba/etc/profile.d/conda.sh" ]; then
-        . "/home/dnachun/micromamba/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/dnachun/micromamba/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
-if [ -f "/home/dnachun/micromamba/etc/profile.d/mamba.sh" ]; then
-    . "/home/dnachun/micromamba/etc/profile.d/mamba.sh"
-fi
-# <<< conda initialize <<<
-
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
 export MAMBA_EXE="/home/dnachun/.local/bin/micromamba";
@@ -263,3 +244,22 @@ unset __mamba_setup
 # <<< mamba initialize <<<
 
 export PATH="$(cope_path):$PATH" # restore when cope conda package is made
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/dnachun/micromamba/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/dnachun/micromamba/etc/profile.d/conda.sh" ]; then
+        . "/home/dnachun/micromamba/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/dnachun/micromamba/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/home/dnachun/micromamba/etc/profile.d/mamba.sh" ]; then
+    . "/home/dnachun/micromamba/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
